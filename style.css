@@ -247,3 +247,18 @@ body.dark #contact a {
     min-height: auto;
   }
 }
+
+.project-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.project-buttons .btn {
+  margin-top: 0;
+  padding: 12px 18px;
+  font-size: 16px;
+  text-align: center;
+}
+
