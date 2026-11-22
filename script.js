@@ -17,7 +17,10 @@ const projects = [
     description: "A mobile application designed to manage school events, register participants, and monitor attendance through an organized check-in system.",
     tech: "Flutter, Dart",
     role: "Mobile App Developer",
-    link: "https://github.com/gemmalynbacudo18"
+
+    source: "https://github.com/gemmalynbacudo18/GemmalynBacudo18.github.io",
+
+    app: "https://gemmalynbacudo18.github.io/"
   }
 ];
 
@@ -43,14 +46,27 @@ projects.forEach(project => {
   roleLabel.textContent = "Role: ";
   role.append(roleLabel, document.createTextNode(project.role));
 
-  const link = document.createElement("a");
-  link.href = project.link;
-  link.target = "_blank";
-  link.rel = "noopener noreferrer";
-  link.className = "btn";
-  link.textContent = "View Code";
+  const buttons = document.createElement("div");
+  buttons.className = "project-buttons";
 
-  card.append(title, description, tech, role, link);
+  const sourceBtn = document.createElement("a");
+  sourceBtn.href = project.source;
+  sourceBtn.target = "_blank";
+  sourceBtn.rel = "noopener noreferrer";
+  sourceBtn.className = "btn";
+  sourceBtn.textContent = "View Source Code";
+
+  const appBtn = document.createElement("a");
+  appBtn.href = project.app;
+  appBtn.target = "_blank";
+  appBtn.rel = "noopener noreferrer";
+  appBtn.className = "btn";
+  appBtn.textContent = "Open Application";
+
+  buttons.append(sourceBtn, appBtn);
+
+  card.append(title, description, tech, role, buttons);
+
   projectList.appendChild(card);
 });
 
@@ -63,7 +79,9 @@ contactForm.addEventListener("submit", function(event) {
   const email = document.getElementById("email").value;
   const message = document.getElementById("message").value;
 
-  const subject = encodeURIComponent("Portfolio Message from " + name);
+  const subject = encodeURIComponent(
+    "Portfolio Message from " + name
+  );
 
   const body = encodeURIComponent(
     "Name: " + name +
